@@ -1,5 +1,10 @@
 # socket.io
 web chat
 
-
-<b>node index.js</b>
+<b>
+  Linux
+  <ul>
+    <li>sudo apt install nodejs</li>
+    <li>node index.js</li>
+  </ul>
+</b>
