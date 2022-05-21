@@ -5,6 +5,7 @@ sleep 2
 clear
 
 sudo apt install npm
+npm i socket.io
 npm install express@4
 sudo apt install nodejs
 
