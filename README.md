@@ -1,6 +1,10 @@
 # socket.io
 web chat
 
+<h1>install</h1>
+
+<p class="bg-black">bash install.sh</p>
+
 <b>
   Linux
   <ul>
