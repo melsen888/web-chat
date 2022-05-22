@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melsen</title>
+    <style>
+      #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
+      #input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
+      #input:focus { outline: none; }
+      #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
 
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages > li { padding: 0.5rem 1rem; }
+      #messages > li:nth-child(odd) { background: #efefef; }
+      
+      .vertical-scrollable>.row {
+            position: absolute;
+            top: 120px;
+            bottom: 100px;
+            left: 180px;
+            width: 50%;
+            overflow-y: scroll;
+        }
+
+    .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 100px;
+      }
+
+      .p-t-50 {
+        padding-top: 350px;
+      }
+    </style>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+  <header class="bg-white fixed-top">
+    <div>
+        <div class="text-center mb-0">
+          <span class="navbar-toggler-icon"></span>
+                <img class="mt-5 center" src="https://pps.whatsapp.net/v/t61.24694-24/256800329_382027330449532_8693071862499414293_n.jpg?ccb=11-4&oh=01_AVzqhmT8dtkIFdDPO_PJLBFW7haAyh_I9ntDH8k-TnEhoA&oe=62968220" alt="" srcset="" height="150px">
+                <p class="lead pt-1">melsen_ <svg viewBox="0 0 18 18" width="18" height="18" class=""><path id="Star-2" fill="#00DA60" d="m9 16-1.9.9-1.3-1.7-2.1-.1-.3-2.1-1.9-1 .7-2.1-1.1-1.7 1.5-1.5-.2-2.1L4.5 4l.8-2 2.1.4L9 1.1l1.7 1.3 2-.4.9 2 2 .6-.1 2.1L17 8.2l-1.1 1.7.6 2.1-1.8 1-.4 2.1-2.1.1-1.3 1.7z"></path><path id="Check-Icon" fill="#FFF" d="m13.1 7.3-.9-.8-4.1 4.1-2.2-2.1-.9.9 3 3z"></path></p>
+                <p class="text-muted pt-0">@melsennn_</p>
+                <hr class="m-5 mb-0"/>
+        </div>
+    </div>
+  </header>
+    <div class="p-t-50">
+        <p id="messages" class="m-5 mt-0 vertical-scrollable"></p>
+        <form id="form" action="">
+          <input  class="d-inline-block" id="input" autocomplete="off" placeholder="Type a message"/><button>Send</button>
+        </form>
+      </div>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+  var nama = prompt("Nama");
+  var messages = document.getElementById('messages');
+  var form = document.getElementById('form');
+  var input = document.getElementById('input');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (input.value) {
+      socket.emit('chat message', nama + " : " + input.value);
+      input.value = '';
+    }
+  });
+
+  socket.on('chat message', function(msg) {
+    var item = document.createElement('li');
+    item.textContent = msg;
+    messages.appendChild(item);
+    window.scrollTo(0, document.body.scrollHeight);
+  });
+</script>
+</html>
