@@ -1,9 +1,11 @@
 # socket.io
-web chat
-
+> web chat
+```JavaScript
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
+```
+
 <h1>install</h1>
 
 <p class="bg-black">bash install.sh</p>
@@ -16,5 +18,6 @@ app.get('/', (req, res) => {
     <li>npm install express@4</li>
     <li>sudo apt install nodejs</li>
     <li>node index.js</li>
+    <a href="http://localhost:3000/">localhost:3000</a>
   </ul>
 </b>
