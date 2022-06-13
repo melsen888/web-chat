@@ -18,4 +18,6 @@ const express = require('express');
     <li>node index.js</li>
     <a href="http://localhost:3000/">localhost:3000</a>
   </ul>
+  <p>or</p>
+  <p>npm i</p>
 </b>
