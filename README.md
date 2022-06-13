@@ -1,8 +1,7 @@
 # socket.io
 > web chat
 ```JavaScript
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+const express = require('express');
 });
 ```
 
