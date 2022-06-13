@@ -2,7 +2,6 @@
 > web chat
 ```JavaScript
 const express = require('express');
-});
 ```
 
 <h1>install</h1>
