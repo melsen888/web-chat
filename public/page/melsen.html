@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melsen</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <style>
+      *, html, body {
+        margin: 0;
+      }
+
+      .header-top{
+        background-color: #333;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .brand {
+        display: flex;
+        flex-direction: row;
+        text-transform: capitalize;
+        align-items: center;
+        height: 80px;
+        padding-left: 20px;
+        font-size: 1.5em;
+      }
+
+      .fristname {
+        color: red;
+        font-weight: 700;
+      }
+
+      .lastname {
+        color: white;
+        font-weight: 500;
+        padding-left: 4px;
+      }
+
+      .navigation {
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .navigation > li {
+        list-style-type: none;
+        padding: 15px;
+      }
+
+      .navigation > li >a {
+        color: #fff;
+        font-size: 15px;
+        text-decoration: none;
+      }
+
+      #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
+      #input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
+      #input:focus { outline: none; }
+      #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
+
+      #messages {list-style-type: none; margin: 0; padding: 0; }
+      #messages > li { padding: 0.5rem 1rem; }
+      #messages > li:nth-child(odd) { background: #efefef; display: flex; justify-content: left;}
+      
+      .vertical-scrollable>.row {
+            position: absolute;
+            top: 120px;
+            bottom: 100px;
+            left: 180px;
+            width: 50%;
+            overflow-y: scroll;
+        }
+
+    .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 100px;
+      }
+
+      .p-t-50 {
+        padding-top: 400px;
+      }
+      
+      #user {
+        display: flex;
+        justify-content: right;
+        padding-right: 30px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .brand a {
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+      }
+    </style>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+  <header class="bg-white fixed-top">
+    <!-- header -->
+    <div class="header-top">
+      <div class="brand">
+        <a href="/">
+          <div class="fristname">Melsen </div>
+          <div class="lastname">Chat</div>
+        </a>
+      </div>
+      <nav>
+        <div class="nav-header">
+          <ul class="navigation">
+            <li><a href="https://github.com/melsen888/socket.io/releases/tag/profie">v0.1</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!-- <div>
+        <div class="text-center mb-0">
+          <span class="navbar-toggler-icon"></span>
+                <img class="center" src="https://pps.whatsapp.net/v/t61.24694-24/256800329_382027330449532_8693071862499414293_n.jpg?ccb=11-4&oh=01_AVzqhmT8dtkIFdDPO_PJLBFW7haAyh_I9ntDH8k-TnEhoA&oe=62968220" alt="" srcset="" height="150px">
+        <p class="lead pt-1">melsen_ <svg viewBox="0 0 18 18" width="18" height="18" class=""><path id="Star-2" fill="#00DA60" d="m9 16-1.9.9-1.3-1.7-2.1-.1-.3-2.1-1.9-1 .7-2.1-1.1-1.7 1.5-1.5-.2-2.1L4.5 4l.8-2 2.1.4L9 1.1l1.7 1.3 2-.4.9 2 2 .6-.1 2.1L17 8.2l-1.1 1.7.6 2.1-1.8 1-.4 2.1-2.1.1-1.3 1.7z"></path><path id="Check-Icon" fill="#FFF" d="m13.1 7.3-.9-.8-4.1 4.1-2.2-2.1-.9.9 3 3z"></path></p>
+                <p class="text-muted pt-0">@melsennn_ <svg width="10" height="12" viewBox="0 0 10 12" class=""><path d="M5.008 1.6c1.375 0 2.501 1.074 2.586 2.427l.005.164v1.271h.158c.585 0 1.059.48 1.059 1.07v3.351c0 .59-.474 1.07-1.059 1.07h-5.5c-.582 0-1.057-.48-1.057-1.07V6.531c0-.59.474-1.069 1.058-1.069h.158V4.191c0-1.375 1.075-2.501 2.429-2.586l.163-.005Zm0 1.248c-.696 0-1.272.534-1.337 1.214l-.006.129-.002 1.271H6.35l.001-1.271c0-.653-.47-1.2-1.088-1.319l-.126-.018-.129-.006Z" fill="currentColor"></path></svg></p>
+                <hr class="m-5 mb-0"/>
+        </div>
+    </div> -->
+  </header>
+    <div class="d-block" style="padding-top: 15vh;"> <!--p-t-50-->
+        <p id="messages" class="m-5 mt-0 vertical-scrollable"></p>
+        <form id="form" action="">
+          <input  class="d-inline-block" id="input" autocomplete="off" placeholder="Type a message"/><button>Send</button>
+        </form>
+      </div>
+</body>
+<script src="/socket.io"></script>
+<script src="/js/global/melsen.js"></script>
+</html>

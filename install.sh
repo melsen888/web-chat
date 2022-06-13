@@ -4,6 +4,9 @@ sleep 2
 
 clear
 
+npm init
+
+# =====
 sudo apt install npm
 npm i socket.io
 npm install express@4

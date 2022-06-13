@@ -1,0 +1,23 @@
+{
+  "name": "socket.io",
+  "version": "1.0.0",
+  "description": "> web chat ```JavaScript app.get('/', (req, res) => {   res.sendFile(__dirname + '/index.html'); }); ```",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melsen888/socket.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melsen888/socket.io/issues"
+  },
+  "homepage": "https://github.com/melsen888/socket.io#readme",
+  "dependencies": {
+    "jsbarcode": "^3.11.5",
+    "socket.io": "^4.5.1"
+  }
+}
