@@ -1,7 +1,9 @@
 # socket.io
 > web chat
 ```JavaScript
-const express = require('express');
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
 ```
 
 <h1>install</h1>
@@ -18,6 +20,4 @@ const express = require('express');
     <li>node index.js</li>
     <a href="http://localhost:3000/">localhost:3000</a>
   </ul>
-  <p>or</p>
-  <p>npm i</p>
 </b>

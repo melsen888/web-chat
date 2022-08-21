@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Melsen LLC</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+   
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+      body {
+        background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,93,111,1) 0%, rgba(6,4,81,1) 0%, rgba(6,4,81,1) 0%, rgba(5,3,69,1) 13%, rgba(7,6,99,1) 25%, rgba(5,147,181,1) 64%, rgba(38,54,69,1) 100%, rgba(0,245,255,1) 100%);
+padding: 30px;
+      }
+
+      #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
+      #input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
+      #input:focus { outline: none; }
+      .blur:focus { outline: none; }
+      .blur { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
+      .blur { backdrop-filter: blur(10px); }
+
+      #form > button { background: rgba(85, 44, 44, 0.571); border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
+
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages > li { padding: 0.5rem 1rem; }
+      #messages > li:nth-child(odd) { background: #ffffff00; }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <!-- Latest compiled and minified CSS -->
+  </head>
+  <body>
+    <!-- header -->
+    <div class="fixed-top">
+      <div class="text-center text-white blur">
+        <h3 id="time">melsen LLC</h3>
+      </div>
+    </div>
+    <div class="position-relative position-absolute top-50 start-50">
+      <div class="display-3">
+        <p>WELCOME @<u id="name"></u></p>
+      </div>
+    </div>
+    <div class="d-inline-block">
+    <h4 class="text-lead text-white m-lg-5" id="messages"></h4>
+              <form id="form" action="">
+                <input class="d-inline-block" id="input" autocomplete="off" placeholder="Type a message" /><button>Send</button><button onclick="window.print();">print</button>
+                
+              </form>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+      let person = prompt("Nama:", "anonymous" ); //nama
+      socket.emit('chat message', person + " ~ " +" " + "bergabung" + " " + new Date() );
+      document.getElementById("name").innerHTML = person
+    </script>
+    <script>
+      var socket = io();
+      var messages = document.getElementById('messages');
+      var form = document.getElementById('form');
+      var input = document.getElementById('input');
+      var date = new Date();
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (input.value)  {
+          socket.emit('chat message', person +" " + "   :   "+ input.value );
+          input.value = '';
+        }
+      });
+
+      socket.on('chat message', function(msg) {
+        var item = document.createElement('h4');
+        item.textContent = msg;
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+
+    </script>
+    <script>
+      function addZero(i) {
+  if (i < 10) {i = "0" + i}
+  return i;
+}
+
+const d = new Date();
+let h = addZero(d.getHours());
+let m = addZero(d.getMinutes());
+let s = addZero(d.getSeconds());
+let time = h + ":" + m + ":" + s;
+    </script>
+    <script>
+      var timeDisplay = document.getElementById("time");
+
+
+function refreshTime() {
+  var dateString = new Date().toLocaleString("id-US", {timeZone: "America/Sao_Paulo"});
+  var formattedString = dateString.replace(", ", " - ");
+  timeDisplay.innerHTML = formattedString;
+}
+
+setInterval(refreshTime, 1000);
+    </script>
+  </body>
+</html>
