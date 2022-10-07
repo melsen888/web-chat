@@ -11,6 +11,10 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname+'/index.html'));
 });
 
+app.get('/tikus', function (req, res) => {
+  res.sendFile(__dirname,'/pukul-tikus-tanah/index.html');
+});
+
 app.get('/melsen', function (req, res) {
   res.sendFile(path.join(__dirname,'/public/page/melsen.html'));
 });
@@ -32,6 +36,7 @@ app.get('/barcode',function (req,res){
 });
 
 app.use(express.static(__dirname + '/public')); // public directory,css,js
+app.use('/game', express.static('pukul-tikus-tanah'))
 app.listen(port);
 
 io.on('connection', (socket) => {

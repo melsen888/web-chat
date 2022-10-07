@@ -1,6 +1,6 @@
 var socket = io();
-var nama = prompt("Nama");
-if (nama === ""){
+var nama = prompt("Nama" );
+if (nama == null && nama === " "){
     nama = "anonymous";
 }
 var messages = document.getElementById('messages');
