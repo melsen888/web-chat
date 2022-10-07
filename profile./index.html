@@ -99,7 +99,7 @@
 <body>
   <header class="bg-white fixed-top">
     <!-- header -->
-    	<a href="/">
+    	<a href="/melsen">
     <div class="header-top">
       <div class="brand">
           <div class="fristname">Melsen </div>
@@ -109,7 +109,7 @@
       <nav>
         <div class="nav-header">
           <ul class="navigation">
-            <li><a href="">v0.1</a></li>
+            <li><a href="">v3.0</a></li>
           </ul>
         </div>
       </nav>
@@ -117,7 +117,7 @@
     <div>
         <div class="text-center mb-0">
           <span class="navbar-toggler-icon"></span>
-                <img class="center" src="https://pps.whatsapp.net/v/t61.24694-24/293268107_836665630649819_8247756915995150447_n.jpg?ccb=11-4&oh=01_AVyNv-GTWPeNpWhm9G_5vAA9EKD6Uv8hIPTEMVjXY3pUwA&oe=63101CA0" alt="" srcset="" height="150px">
+                <img class="center" src="/public/img/melsen.jpg" alt="" srcset="" height="150px">
         <p class="lead pt-1">melsen_ <svg viewBox="0 0 18 18" width="18" height="18" class=""><path id="Star-2" fill="#00DA60" d="m9 16-1.9.9-1.3-1.7-2.1-.1-.3-2.1-1.9-1 .7-2.1-1.1-1.7 1.5-1.5-.2-2.1L4.5 4l.8-2 2.1.4L9 1.1l1.7 1.3 2-.4.9 2 2 .6-.1 2.1L17 8.2l-1.1 1.7.6 2.1-1.8 1-.4 2.1-2.1.1-1.3 1.7z"></path><path id="Check-Icon" fill="#FFF" d="m13.1 7.3-.9-.8-4.1 4.1-2.2-2.1-.9.9 3 3z"></path></p>
                 <p class="text-muted pt-0">@melsennn_ <svg width="10" height="12" viewBox="0 0 10 12" class=""><path d="M5.008 1.6c1.375 0 2.501 1.074 2.586 2.427l.005.164v1.271h.158c.585 0 1.059.48 1.059 1.07v3.351c0 .59-.474 1.07-1.059 1.07h-5.5c-.582 0-1.057-.48-1.057-1.07V6.531c0-.59.474-1.069 1.058-1.069h.158V4.191c0-1.375 1.075-2.501 2.429-2.586l.163-.005Zm0 1.248c-.696 0-1.272.534-1.337 1.214l-.006.129-.002 1.271H6.35l.001-1.271c0-.653-.47-1.2-1.088-1.319l-.126-.018-.129-.006Z" fill="currentColor"></path></svg></p>
                 <hr class="m-5 mb-0"/>
@@ -135,7 +135,7 @@
 <script>
   var socket = io();
   var nama = prompt("Nama");
-  if (nama === ""){
+  if (nama === "" && nama == null){
     nama = "anonymous";
   }
   var messages = document.getElementById('messages');
@@ -150,11 +150,32 @@
     }
   });
 
+
+
   socket.on('chat message', function(msg) {
     var item = document.createElement('li');
     item.textContent = msg;
     messages.appendChild(item);
     window.scrollTo(0, document.body.scrollHeight);
+    const options = {
+      body: msg,
+    }
+
+    const notification = new Notification('M31SEN',options);
+
+    function isNewNotificationSupported() {
+      if (!window.Notification || !Notification.requestPermission)
+          return false;
+      if (Notification.permission == 'granted')
+          throw new Error('You must only call this *before* calling Notification.requestPermission(), otherwise this feature detect would bug the user with an actual notification!');
+      try {
+          new Notification('');
+      } catch (e) {
+          if (e.name == 'TypeError')
+              return false;
+      }
+      return true;
+    }
   });
 </script>
 </html>

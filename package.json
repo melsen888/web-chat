@@ -6,9 +6,9 @@
   "dependencies": {
     "express": "^4.18.1",
     "nodemon": "^2.0.19",
+    "push.js": "^1.0.12",
     "socket.io": "^4.5.1"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
