@@ -1,43 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GAME</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>melsen</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css" type="text/css">
 </head>
-
+<style>
+    .link{display: flex; flex-direction: row; text-align: center; padding-top: 5vh; justify-content: center;padding: 5%;padding-bottom: 0%;}
+    .start a {background-color: rgb(0, 195, 255); text-decoration: none; margin-right: 2vh; color: black; padding: 25px 30px;font-size: 100%;}.link{margin-top: 15vh}
+    .start a:hover { background-color: white; color: black; transition:0.4s ; -webkit-transition:0.4s ; -moz-transition:0.4s ; -ms-transition:0.4s ; -o-transition:0.4s ; }
+    .tutorial a {color: rgb(0,195,255); padding: 25px 30px;text-decoration: none;font-size: 65%;}
+.tutorial a:hover { color: white; transition: 0.4s; -webkit-transition: 0.4s; -moz-transition: 0.4s; -ms-transition: 0.4s; -o-transition: 0.4s; }
+</style>
 <body>
-  <h1>@game</h1>
+    
+    <div class="header">
+        <div class="wrapper">
+            <h1>m31<span class="red">.</span></h1>
+        </div>
+        <span id="date"></span>
+        <div class="link">
+                <div class="start">
+                    <a href="/melsen">melsen</a>
+                </div>
+                <div class="tutorial">
+                    <a href="/global">global</a>
+                </div>
+        </div>
+    </div>
 
-  <button type="button" class="mulai" onclick="mulai()">Mulai!</button>
+    <div class="name">
+    </div>
+    <!--  -->
+  <!--   <div class="page2" id="page2">
+        <h1>Login</h1>
+        !login
+        <form name="login"> -->
+            <!-- 
+        </form> -->
 
-  <h2 class="papan-skor">0</h2>
 
-  <div class="container">
-    <div class="tanah">
-      <div class="tikus"></div>
+        
     </div>
-    <div class="tanah">
-      <div class="tikus"></div>
-    </div>
-    <div class="tanah">
-      <div class="tikus"></div>
-    </div>
-    <div class="tanah">
-      <div class="tikus"></div>
-    </div>
-    <div class="tanah">
-      <div class="tikus"></div>
-    </div>
-    <div class="tanah">
-      <div class="tikus"></div>
-    </div>
-  </div>
-
-  <audio src="audio/Pop.mp3" id="pop"></audio>
-  <script src="js/script.js"></script>
+<div class="version">
+    <a target=”_blank” href="https://github.com/melsen888/socket.io/releases/tag/profie"><small>v 3.0</small></a>
+</div>
 </body>
-
+<script>
+    document.getElementById("date").innerHTML = "&copy 2022  - " + new Date().getFullYear() +  " , melsen888";
+</script>
 </html>
